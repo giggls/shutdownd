@@ -1,0 +1,19 @@
+Name shutdownd
+
+Usage {Shut down System when button is pressed/released}
+
+Description {shutdownd is a daemon which calles the given command on keypress/release events}
+
+Int -c code {scan codes to react to} -d 310 315 -c 1 oo
+
+Int -e edge {run command on negative(0) oder positive(1) edge} -d 1 1 -r 0 1 -c 1 oo
+
+String -cmd command {command to execute} -d {/sbin/shutdown -h now} {/sbin/shutdown -h now} -c 1 oo
+
+Flag -fg foreground {run in foreground do not daemonize}
+
+Flag -d debug {run in debug mode (implies foreground)}
+
+Flag -q query {query available devices}
+
+String -dev device {device to use for input} -d "Padix Co. Ltd. USB, 2-axis, 14-button gamepad"
